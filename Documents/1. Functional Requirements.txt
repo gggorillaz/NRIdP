@@ -1,0 +1,101 @@
+1. Functional Requirements:
+1.1. User Registration and Profile Management:
+User Registration:
+
+	Collect user information: First name, last name, email, password, etc.
+	Validation of input data: Check if the email is in the correct format, password strength, etc.
+	Send a confirmation email to the user to verify their email address.
+	Store user data securely in the database.
+
+User Login:
+
+	Allow users to log in using their email and password.
+	Implement account lockout after a certain number of unsuccessful attempts.
+
+Password Reset:
+
+	Allow users to reset their password if forgotten.
+	Send a password reset link or code to their registered email.
+
+Profile Management:
+
+	Allow users to view their profile information.
+	Provide the option to update profile details like name, email, etc.
+	Allow users to change their password.
+
+
+1.2. Multi-Factor Authentication (MFA):
+MFA Setup:
+
+	Allow users to set up MFA during registration or through their profile settings.
+	Support for various MFA methods, e.g., SMS, Authenticator apps, etc.
+
+MFA During Login:
+
+	If MFA is enabled for a user, prompt for the second factor after successful password validation.
+	Provide a fallback option or method if the primary MFA method fails (e.g., using backup codes).
+
+
+MFA Management:
+
+	Allow users to turn MFA on or off.
+	Allow users to change their MFA method.
+	Provide backup codes for users.
+
+
+
+1.3. Token Issuance:
+Token Generation:
+
+	Generate a JWT (or similar) after a successful authentication.
+	The token should contain relevant claims, e.g., user ID, roles, expiration time, etc.
+
+Token Validation:
+
+	APIs or services using the token should be able to validate it.
+	Check for token expiration, signature, etc.
+
+Token Revocation:
+
+	Implement a mechanism to revoke tokens if needed (e.g., user logs out or changes their password).
+
+
+
+2. Non-functional Requirements:
+Security:
+
+	All data transmissions must be encrypted (HTTPS).
+	Passwords should be stored using a secure hashing algorithm like bcrypt or Argon2.
+	Tokens should be securely signed, and sensitive data within tokens should be encrypted.
+
+
+Performance:
+
+	The system should respond quickly to user interactions. For instance, token issuance after login should not take more than 	a few seconds.
+	The system should be capable of handling a large number of concurrent users.
+
+
+Scalability:
+
+	The system should be designed to scale horizontally, allowing for increased loads by adding more servers or instances.
+
+
+Availability:
+
+	Aim for high availability, ensuring that the system remains operational even if one or more components fail.
+
+
+Maintainability:
+
+	The codebase should be well-organized, commented, and modular, allowing for easy updates and fixes.
+
+
+Usability:
+
+	The user interface (even if it's a basic one) should be intuitive and user-friendly.
+
+
+Backup and Recovery:
+
+	Regular backups of user data and system configurations should be taken.
+	There should be a recovery plan in case of any failures or data loss.

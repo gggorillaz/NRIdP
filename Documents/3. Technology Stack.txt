@@ -1,0 +1,89 @@
+3. Technology Stack
+
+3.1. UI Layer: Flask vs. Django
+Flask:
+
+	Pros:
+	Lightweight and micro-framework: Gives you more control over which components to use.
+	Flexible: Can be integrated with a wide range of libraries and tools.
+	Easier learning curve for those new to web development.
+
+	Cons:
+	May require more setup and configuration since it doesn't come with built-in tools that Django offers (like ORM, admin 	interface).
+
+Django:
+
+	Pros:
+	Batteries-included framework: Comes with its ORM, an admin interface, and many built-in utilities.
+	Structured and enforces a specific project structure, which can help maintain larger projects.
+	Rich ecosystem and community support.
+
+	Cons:
+	Steeper learning curve due to its comprehensive nature.
+	May feel "heavy" for smaller projects.
+	Recommendation: If you're looking for a streamlined approach and might expand the project in the future, Django could be a 	better choice. However, if you prefer flexibility and a lightweight structure, go for Flask.
+
+
+3.2. App/API Layer: Flask-JWT and bcrypt
+
+Flask-JWT: 
+	A great choice for Flask-based applications. If you go with Django, you'd look into Django-specific JWT solutions like 	django-rest-framework-jwt.
+
+bcrypt: 
+	It's a robust choice for password hashing. If you go with Django, it comes with its password management system which uses 	PBKDF2 by default, but can be configured to use bcrypt with external libraries.
+
+
+3.3. Database Layer: PostgreSQL vs. MySQL
+
+PostgreSQL:
+
+	Pros:
+	Known for extensibility and standards compliance.
+	Supports JSON fields natively, which might be beneficial if you need to store unstructured data.
+	Offers advanced indexing, full-text search, and more.
+
+	Cons:
+	Slightly more complex to set up and tune for performance compared to MySQL.
+
+MySQL:
+
+	Pros:
+	Well-established, with a vast amount of resources and community support.
+	Easier setup and administration.
+	
+	Cons:
+	Less advanced features compared to PostgreSQL.
+	Recommendation: Both are capable, but PostgreSQL has been gaining a lot of popularity, especially in new projects, due to 	its advanced features and flexibility.
+
+3.4. AWS Hosting:
+
+	EC2: For running your application servers.
+	RDS: Managed relational database service. Can support either PostgreSQL or MySQL.
+	S3: For storing static files, backups, etc.
+	IAM: Absolutely crucial to manage permissions and access in your AWS environment.
+	CloudWatch: For monitoring and logging.
+	3.5. Firewall Support: VyOS vs. AWS WAF
+
+VyOS:
+
+	An open-source network operating system.
+	More control over the configuration but might be overkill for this project unless you're well-versed with network 	configurations.
+
+AWS WAF (Web Application Firewall):
+
+	Pros:
+	Integrates well with AWS services, especially if you use a Load Balancer or CloudFront.
+	Managed service, so less configuration overhead.
+	Protects your application from web exploits like SQL injection and XSS.
+
+	Cons:
+	Additional costs, but given its ease of use and integration within the AWS ecosystem, it's often preferred.
+	Recommendation: If you're deploying on AWS, using AWS WAF might be more straightforward and provide robust security 	without the intricacies of managing a full-fledged network operating system like VyOS.
+
+In summary, based on ease of use and potential for future expansion, you might consider:
+
+UI Layer: Django
+App/API Layer: Django-specific JWT library (if you choose Django) and bcrypt (or Django's default password manager)
+Database Layer: PostgreSQL
+AWS Hosting: EC2, RDS (PostgreSQL), S3, IAM, CloudWatch
+Firewall: AWS WAF

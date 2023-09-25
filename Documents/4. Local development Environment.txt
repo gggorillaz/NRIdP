@@ -1,0 +1,56 @@
+4. Local development Environment
+
+1. System & Basic Tools:
+Ensure you have a stable OS. Developers commonly use macOS, Linux distributions, or Windows (with WSL2 for Linux-like capabilities).
+Install a good code editor or IDE. Some popular choices are Visual Studio Code, PyCharm, or Atom.
+
+2. Python Environment:
+Install Python: Ensure you have Python installed. Since you'll likely be using Python 3, you can check its existence with python3 --version.
+Virtual Environments: It's recommended to use virtual environments for Python projects. This ensures dependencies for each project are isolated.
+Install virtualenv using pip: pip install virtualenv.
+Create a virtual environment: virtualenv myenv.
+Activate it:
+macOS/Linux: source myenv/bin/activate.
+Windows: myenv\Scripts\activate.
+
+3. Django Setup (if chosen for UI):
+Install Django within your virtual environment: pip install django.
+Start a new Django project: django-admin startproject myproject.
+Move into your project directory: cd myproject.
+Run the development server to check if everything's working: python manage.py runserver. Visit http://127.0.0.1:8000/ in your browser, and you should see Django's welcome page.
+
+4. Database Setup (PostgreSQL):
+Install PostgreSQL: Depending on your OS, the installation process will vary. For example, on macOS, you can use Homebrew (brew install postgresql). On Debian-based Linux distributions, you might use apt-get.
+Set Up Local Database: Once installed, set up a local database, user, and grant permissions. This step also varies by OS, but tools like pgAdmin or command-line tools (createdb, psql) can assist.
+
+5. Configure Django to Use PostgreSQL (if Django is chosen):
+Install psycopg2, a PostgreSQL adapter for Python: pip install psycopg2.
+In your Django project's settings (myproject/settings.py), modify the DATABASES setting to:
+python
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'your-database-name',
+        'USER': 'your-database-user',
+        'PASSWORD': 'your-database-password',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+
+6. Version Control (git):
+Install git if not already available.
+Initialize a new repository in your project directory: git init.
+Create a .gitignore file to exclude unnecessary files (like Python bytecode or personal IDE configurations). There are templates available online for Python/Django projects.
+Commit your initial setup: git add. followed by git commit -m "Initial commit".
+
+7. Other Dependencies:
+For JWT, MFA, and other functionalities, you'll be adding more libraries and dependencies as you proceed with development. Always use pip (within your virtual environment) to install these.
+
+8. Front-end (Optional for now):
+If you decide to add more advanced frontend capabilities, tools like Node.js, npm (Node Package Manager), and frontend frameworks like React or Vue.js might come into play. But for the initial setup with Django, the built-in templating system will suffice.
+
+
+Final Note:
+Ensure your development environment mirrors your production environment as closely as possible. This minimizes unforeseen issues when deploying to production. For instance, if you're using PostgreSQL in production, avoid using SQLite in development. Docker is also an excellent tool for this purpose, allowing you to containerize your application and its dependencies to ensure consistent environments across development, staging, and production. But for the initial stages, the above setup should suffice.
