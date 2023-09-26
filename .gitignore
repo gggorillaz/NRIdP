@@ -1,0 +1,13 @@
+# Ignore common exclusions and virtual environment
+
+### Virtual Environment
+venv/
+
+
+### Common Exclusions
+*.pyc
+__pycache__/
+*.log
+db.sqlite3
+*.egg-info/
+.DS_Store
