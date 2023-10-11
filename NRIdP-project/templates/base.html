@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NRIdP - A personal Identity Provider</title>
+    <!-- You can include any CSS or JS libraries here if needed -->
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to NRIdP</h1>
+    </header>
+
+    <main>
+    	{% block content %}
+        <p>Personal project to build my own trusted Identity Provider.</p>
+        <a href="{% url 'login' %}">Login</a>
+        <!-- Optional Register Button -->
+        <a href="{% url 'register' %}">Register</a>
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2023 NRIdP. All rights reserved under GNU license</p>
+    </footer>
+</body>
+
+</html>
